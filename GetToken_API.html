@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Get Token API</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Belajar Get Token API</h1> 
+    
+    <script>
+        const data = {
+                username :"emilys",
+                password :"emilyspass",
+                expireInMIns: 30,
+        }
+       function Login(data){
+        axios.post('https://dummyjson.com/auth/login', data)
+            .then((res) => {
+                console.log("Berhasil Masuk User ",res.data);
+                dahLogin(res.data.token);
+            })
+            .catch((err) => {
+                console.log("Tidak Berhasil Masuk User Data JSON", err.message);
+            })
+            .finally(function () {
+                console.log("Coba Login dengan Token");
+            });
+       }
+
+       
+
+       function dahLogin(token){
+        axios.get('https://dummyjson.com/auth/me',{
+            headers: {
+            'Authorization': `Bearer ${token}`
+            }
+        })
+            .then((res) => {
+                console.log("Berhasil Masuk dengan Token User ",res.data);
+            })
+            .catch((err) => {
+                console.log("Tidak Berhasil Masuk dengan Token Data JSON", err.message);
+            })
+            .finally(function () {
+                console.log("DONE");
+            });
+       }
+       Login(data);
+
+    </script>
+</body>
+
+</html>
+

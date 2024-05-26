@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Method GET API</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Belajar Method GET API</h1> 
+    <script>
+        axios.get("https://dummyjson.com/users")
+            .then((res) => {
+                console.log("Berhasil Request JSON carts ",res.data);
+            })
+            .catch((err) => {
+                console.log("Tidak Berhasil Request JSON", err.message);
+            })
+            .finally(() => {
+                console.log("DONE");
+            });
+    </script>
+</body>
+
+</html>

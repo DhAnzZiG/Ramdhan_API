@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Method POST API</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Belajar Method POST API</h1> 
+    
+    <script>
+       function PostUser(data){
+        axios.post('https://dummyjson.com/users/add', data)
+            .then((res) => {
+                console.log("Berhasil Menambah User ",res.data);
+            })
+            .catch((err) => {
+                console.log("Tidak Berhasil Menambah Data JSON", err.message);
+            })
+            .finally(function () {
+                console.log("DONE");
+            });
+       }
+       const data = {
+                username :"James",
+                address : {
+                    address : "Solo",
+                    city : "SoloKulon",
+                }
+       }
+       PostUser(data)
+    </script>
+</body>
+
+</html>
+

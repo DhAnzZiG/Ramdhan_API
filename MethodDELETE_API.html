@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Method DELETE API</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <h1>Belajar Method DELETE API</h1> 
+    
+    <script>
+       function DeleteUser(id){
+        axios.delete(`https://dummyjson.com/users/${id}`)
+            .then((res) => {
+                console.log("Berhasil Delete User ",res.data);
+            })
+            .catch((err) => {
+                console.log("Tidak Berhasil Delete Data JSON", err.message);
+            })
+            .finally(function () {
+                console.log("DONE");
+            });
+       }
+       DeleteUser(4)
+    </script>
+</body>
+
+</html>
+
